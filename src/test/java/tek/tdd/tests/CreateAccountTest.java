@@ -1,5 +1,6 @@
 package tek.tdd.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import tek.tdd.base.UIBaseClass;
 
@@ -18,6 +19,9 @@ public class CreateAccountTest extends UIBaseClass {
         sendText(newAccountPage.passwordInput, "Password123!");
         sendText(newAccountPage.confirmPasswordInput, "Password123!");
         clickOnElement(newAccountPage.signUpButton);
+
+        boolean accountCreated = isElementEnabled(homePage.accountLink);
+        Assert.assertTrue(accountCreated, "Account has been created");
 
     }
 }

@@ -3,25 +3,25 @@ package tek.tdd.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tek.tdd.base.UIBaseClass;
+import tek.tdd.page.SignUpPage;
+import tek.tdd.utility.DataGenerator;
 
 public class CreateAccountTest extends UIBaseClass {
 
-    /*CreateAccountTest
-    Story 4: Navigate to Create Account page and Create new Account
-    Validate New Account Created.*/
-
-
     @Test
-    public void validateAccountCreated () {
-        clickOnElement(newAccountPage.createAccountButton);
-        sendText(newAccountPage.nameInput, "Charlie");
-        sendText(newAccountPage.emailInput, "Charlie234@gmail.com");
-        sendText(newAccountPage.passwordInput, "Password123!");
-        sendText(newAccountPage.confirmPasswordInput, "Password123!");
-        clickOnElement(newAccountPage.signUpButton);
+    public void createNewAccountTestPositive() {
+        clickOnElement(homePage.signInLink);
+        clickOnElement(signInPage.createNewAccountLink);
 
-        boolean accountCreated = isElementEnabled(homePage.accountLink);
-        Assert.assertTrue(accountCreated, "Account has been created");
+        String expectedEmail = DataGenerator.genereteRandomEmail("Mohammad");
 
+        signUpPage.fillUpCreateAccountForm("Mohammad",
+                expectedEmail,
+                "Password@123");
+
+        String actualEmail = getElementText(accountProfilePage.accountEmailInfo);
+
+        Assert.assertEquals(actualEmail, expectedEmail,
+                "Profile Page should have same email as Created");
     }
 }

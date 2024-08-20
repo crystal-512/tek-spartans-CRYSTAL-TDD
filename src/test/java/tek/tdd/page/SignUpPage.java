@@ -5,14 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tek.tdd.utility.SeleniumUtility;
 
-public class NewAccountPage extends SeleniumUtility {
+public class SignUpPage extends SeleniumUtility {
 
-    public NewAccountPage() {
+    public SignUpPage() {
         PageFactory.initElements(getDriver(), this);
     }
-
-    @FindBy(id = "newAccountBtn")
-    public WebElement createAccountButton;
 
     @FindBy(name = "name")
     public WebElement nameInput;
@@ -28,4 +25,13 @@ public class NewAccountPage extends SeleniumUtility {
 
     @FindBy(id = "signupBtn")
     public WebElement signUpButton;
+
+    public void fillUpCreateAccountForm(String name, String email, String password) {
+        sendText(nameInput, name);
+        sendText(emailInput, email);
+        sendText(passwordInput, password);
+        sendText(confirmPasswordInput, password);
+
+        clickOnElement(signUpButton);
+    }
 }

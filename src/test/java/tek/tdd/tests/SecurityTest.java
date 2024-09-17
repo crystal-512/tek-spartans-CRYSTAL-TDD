@@ -45,7 +45,7 @@ public class SecurityTest extends UIBaseClass {
         return new String[][]{
                 {"NoAVALIDEmail@email.com" , "Password@123"},
                 {"Nomail@gmail.com", "WrongPassword"},
-                {"mohammad2536@gmail.com" , "WrongPassword"},
+                {"crystal.a512@gmail.com" , "WrongPassword"},
         };
     }
 

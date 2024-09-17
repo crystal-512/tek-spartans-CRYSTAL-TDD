@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TokenGenerationTest extends ApiTestBase {
-    private static final Logger LOGGER = LogManager.getLogger(TokenGenerationTests.class);
+    private static final Logger LOGGER = LogManager.getLogger(TokenGenerationTest.class);
 
     //Create a test validate token generated with supervisor User
     @Test
@@ -32,4 +32,4 @@ public class TokenGenerationTest extends ApiTestBase {
 
     //Activity generate token with operator user
 }
-}
+

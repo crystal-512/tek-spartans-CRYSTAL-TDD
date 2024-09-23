@@ -1,6 +1,7 @@
 package tek.tdd.base;
 
 import io.opentelemetry.sdk.metrics.internal.state.SynchronousMetricStorage;
+import io.restassured.RestAssured;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -40,6 +41,11 @@ public abstract class BaseSetup {
             InputStream inputStream = new FileInputStream(configFilePath);
             properties = new Properties();
             properties.load(inputStream);
+
+            //Get API Base URL and setup RestAssured
+            String baseURL = properties.getProperty("api.url");
+            RestAssured.baseURI = baseURL;
+
         } catch (IOException ioException) {
             LOGGER.error("Config file error with message {}", ioException.getMessage());
             throw new RuntimeException("Config file error with message" + ioException.getMessage());

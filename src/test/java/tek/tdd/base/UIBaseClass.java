@@ -1,15 +1,18 @@
 package tek.tdd.base;
 
+import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import tek.tdd.page.AccountProfilePage;
 import tek.tdd.page.HomePage;
 import tek.tdd.page.SignUpPage;
 import tek.tdd.page.SignInPage;
 import tek.tdd.utility.SeleniumUtility;
 
+@Listeners({ExtentITestListenerClassAdapter.class})
 public class UIBaseClass extends SeleniumUtility {
     private static final Logger LOGGER = LogManager.getLogger(UIBaseClass.class);
 

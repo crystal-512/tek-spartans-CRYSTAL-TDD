@@ -47,6 +47,7 @@ public class SignUpPage extends SeleniumUtility {
     public List<WebElement> fieldErrors;
 
 
+
     public void fillUpCreateAccountForm(String name, String email, String password) {
         sendText(nameInput, name);
         sendText(emailInput, email);

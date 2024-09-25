@@ -17,32 +17,33 @@ public class CreateAccountTest extends ApiTestBase {
     //Use POJO to Request Body
     @Test
     public void createNewAccountTest() {
-        String randomEmail = DataGenerator.generateRandomEmail("instructor");
-        AddAccountRequest request = AddAccountRequest.builder()
-                .email(randomEmail)
-                .firstName("Crystal")
-                .lastName("Marry")
-                .title("Ms.")
-                .gender("FEMALE")
-                .maritalStatus("SINGLE")
-                .employmentStatus("Software Developer")
-                .dateOfBirth("1994-05-08")
-                .build();
+            String randomEmail = DataGenerator.generateRandomEmail("student");
+            AddAccountRequest request = AddAccountRequest.builder()
+                    .email(randomEmail)
+                    .firstName("Crystal")
+                    .lastName("Marry")
+                    .title("Ms.")
+                    .gender("FEMALE")
+                    .maritalStatus("SINGLE")
+                    .employmentStatus("Software Developer")
+                    .dateOfBirth("1986-10-25")
+                    .build();
 
-        Response response = getDefaultRequest()
-                .body(request)
-                .when()
-                .post(EndPoints.ADD_PRIMARY_ACCOUNT.getValue())
-                .then()
-                .statusCode(201)
-                .extract()
-                .response();
+            Response response = getDefaultRequest()
+                    .body(request)
+                    .when()
+                    .post(EndPoints.ADD_PRIMARY_ACCOUNT.getValue())
+                    .then()
+                    .statusCode(201)
+                    .extract()
+                    .response();
 
-        response.prettyPrint();
-        ExtentTestManager.getTest().info(response.asPrettyString());
+            response.prettyPrint();
+            ExtentTestManager.getTest().info(response.asPrettyString());
 
-        AccountResponse accountResponse =response.body().jsonPath().getObject("", AccountResponse.class);
+            AccountResponse accountResponse =response.body().jsonPath().getObject("", AccountResponse.class);
 
-        Assert.assertNotNull(accountResponse);
+            Assert.assertNotNull(accountResponse);
+        }
+
     }
-}

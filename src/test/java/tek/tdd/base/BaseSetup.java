@@ -35,7 +35,7 @@ public abstract class BaseSetup {
     public BaseSetup() {
         //Reading Config Files and Loading to properties
         String configFilePath = System.getProperty("user.dir")
-                + "/src/test/resources/configs/dev-config.properties";
+                + "/src/test/resources/config/dev-config.properties";
         try {
             LOGGER.debug("Reading Config file from path {}", configFilePath);
             InputStream inputStream = new FileInputStream(configFilePath);

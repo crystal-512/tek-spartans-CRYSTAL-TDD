@@ -28,4 +28,5 @@ public class BasicSetupTest extends UIBaseClass {
         Assert.assertTrue(isEnabled, "Sign in button should be enabled");
     }
 
+
 }

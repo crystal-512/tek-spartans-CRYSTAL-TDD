@@ -4,6 +4,7 @@
         <classes>
             <class name="tek.tdd.tests.SecurityTest" />
             <class name="tek.tdd.tests.CreateAccountTest" />
+            <class name="tek.tdd.tests.AccountProfileTest" />
         </classes>
     </test>
     <test name="Smoke Tests">

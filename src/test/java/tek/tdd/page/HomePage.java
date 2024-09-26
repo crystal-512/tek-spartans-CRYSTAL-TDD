@@ -12,7 +12,7 @@ public class HomePage extends SeleniumUtility {
         PageFactory.initElements(getDriver(), this);
     }
 
-    @FindBy(linkText = "top-nav__logo")
+    @FindBy(className = "top-nav__logo")
     public WebElement topLeftLogo;
 
     @FindBy(id = "signinLink")
@@ -20,4 +20,7 @@ public class HomePage extends SeleniumUtility {
 
     @FindBy(id = "accountLink")
     public WebElement accountLink;
+
+    @FindBy(className = "Toastify__toast-body")
+    public WebElement toastBody;
 }

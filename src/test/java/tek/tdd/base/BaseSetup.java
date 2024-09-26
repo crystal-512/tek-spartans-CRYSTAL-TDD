@@ -52,6 +52,14 @@ public abstract class BaseSetup {
         }
     }
 
+    private String getEnvConfig() {
+        String configFilePath = System.getProperty("user.dir")
+                + "/src/test/resources/configs/{env}-config.properties";
+        String env = System.getProperty("env");
+        if (env == null) return configFilePath.replace("{env}", "dev");
+        return configFilePath.replace("{env}", env);
+    }
+
     public void setupBrowser() {
         String url = properties.getProperty("ui.url");
         String browserType = properties.getProperty("ui.browser");
